@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calvin‑style Minimal Page</title>
+  <meta name="description" content="A super‑minimal personal page. Text first, fast, and responsive." />
+  <meta property="og:title" content="Calvin‑style Minimal Page" />
+  <meta property="og:description" content="A super‑minimal personal page. Text first, fast, and responsive." />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root {
+      --fg: #111;
+      --muted: #555;
+      --link: #0b57d0; /* system blue-ish */
+      --bg: #fff;
+      --maxw: 720px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --fg:#eaeaea; --muted:#aaa; --bg:#0b0b0b; --link:#8ab4f8; }
+    }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    main {
+      max-width: var(--maxw);
+      padding: 14vh 24px 24px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      line-height: 1.1;
+      margin: 0 0 18px;
+      letter-spacing: -0.02em;
+    }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 8px 0 28px;
+    }
+    .links a, .links button {
+      color: var(--link);
+      text-decoration: none;
+      border: 1px solid transparent;
+      padding: 2px 0;
+    }
+    .links a:hover { text-decoration: underline; }
+    p { margin: 0 0 14px; font-size: clamp(16px, 2.4vw, 18px); }
+    .muted { color: var(--muted); }
+    footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
+    /* Nice, narrow measure on very wide screens */
+    @media (min-width: 1280px) { :root { --maxw: 680px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Calvin Chen</h1>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/calvinchen" rel="me noopener" target="_blank">LinkedIn</a>
+      <a href="https://x.com/calvinjaychen" rel="me noopener" target="_blank">Twitter</a>
+      <a href="mailto:hello@example.com">Email</a>
+    </div>
+
+    <p>I'm working on something new to help frontier labs train the best AI coding agents.</p>
+    <p>Most days I read, write, build things, and meet other interesting people. If that's you, <a href="mailto:hello@example.com">say hi</a>.</p>
+    <p>I previously built two e‑commerce software startups. I bootstrapped one to $1.5M ARR and sold it for $9M.</p>
+    <p>I did a short stint at Goldman Sachs in the TMT investment banking group—I enjoyed it, but not what I wanted my life's work to be.</p>
+    <p>I studied business and CS at USC, before dropping out for Y‑Combinator.</p>
+
+    <footer class="muted">© <span id="y"></span> • Built with plain HTML/CSS • Fast by default</footer>
+  </main>
+
+  <script>
+    // current year in footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
