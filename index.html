@@ -9,55 +9,40 @@
   <meta property="og:description" content="A super‑minimal personal page. Text first, fast, and responsive." />
   <meta name="color-scheme" content="light dark" />
   <style>
+    /* Calvin‑style: default serif, generous font size, simple links */
     :root {
-      --fg: #111;
-      --muted: #555;
-      --link: #0b57d0; /* system blue-ish */
+      --fg: #000;
       --bg: #fff;
       --maxw: 720px;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root { --fg:#eaeaea; --muted:#aaa; --bg:#0b0b0b; --link:#8ab4f8; }
     }
     html, body { height: 100%; }
     body {
       margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       background: var(--bg);
       color: var(--fg);
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 20px;          /* match screenshot scale */
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
     main {
       max-width: var(--maxw);
-      padding: 14vh 24px 24px;
+      padding: 64px 24px 24px;  /* roomy top spacing */
       margin: 0 auto;
     }
     h1 {
-      font-size: clamp(28px, 5vw, 40px);
-      line-height: 1.1;
-      margin: 0 0 18px;
-      letter-spacing: -0.02em;
+      font-size: 36px;          /* large but not oversized */
+      line-height: 1.2;
+      margin: 0 0 16px;
+      font-weight: 700;
     }
     .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin: 8px 0 28px;
+      margin: 0 0 24px;
     }
-    .links a, .links button {
-      color: var(--link);
-      text-decoration: none;
-      border: 1px solid transparent;
-      padding: 2px 0;
+    .links a { 
+      margin-right: 18px;       /* small gap between links */
     }
-    .links a:hover { text-decoration: underline; }
-    p { margin: 0 0 14px; font-size: clamp(16px, 2.4vw, 18px); }
-    .muted { color: var(--muted); }
-    footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
-    /* Nice, narrow measure on very wide screens */
-    @media (min-width: 1280px) { :root { --maxw: 680px; } }
+    p { margin: 0 0 18px; }
+    footer { display:none; }
   </style>
 </head>
 <body>
