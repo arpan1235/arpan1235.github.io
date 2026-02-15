@@ -43,6 +43,7 @@
   .spacer { height: 10px; }
   .section-label { color: #b0aaa0; margin-top: 10px; }
   .section-text { color: #7a756f; }
+  .section-text a { color: #b0aaa0; text-decoration: underline; }
   .link-row {
     color: #4a4540;
     cursor: pointer;
@@ -118,11 +119,11 @@ const lines = [
   { type: 'para', text: 'Building AI-powered quality control for the construction industry. Training vision models for small object detection in high variability.' },
   { type: 'spacer' },
   { type: 'label', text: 'Previously:' },
-  { type: 'text', text: '> Co-founded medical device startup (exited) \u2014 Designed, patented, and clinically validated a respiratory device.' },
-  { type: 'text', text: '> Sweat cortisol sensing fabrics \u2014 Contract with Lululemon.' },
-  { type: 'text', text: '> Engineering at Evasc \u2014 Designed neurological stent for aneurysm prevention.' },
-  { type: 'text', text: '> Math & ML research at UBC \u2014 Explored applied math and machine learning topics.' },
-  { type: 'text', text: '> Physics research at Adolphe Merkle Institute \u2014 Gold particle nanophotonics.' },
+  { type: 'rich', html: '> Co-founded medical device startup (exited) \u2014 Designed, patented, and clinically validated a respiratory device.' },
+  { type: 'rich', html: '> Sweat cortisol sensing fabrics \u2014 Contract with <a href="https://www.lululemon.com" target="_blank">Lululemon</a>.' },
+  { type: 'rich', html: '> Engineering at <a href="https://www.evasc.com" target="_blank">Evasc</a> \u2014 Designed neurological stent for aneurysm prevention.' },
+  { type: 'rich', html: '> Math & ML research at <a href="https://www.ubc.ca" target="_blank">UBC</a> \u2014 Explored applied math and machine learning topics.' },
+  { type: 'rich', html: '> Physics research at <a href="https://www.ami.swiss" target="_blank">Adolphe Merkle Institute</a> \u2014 Gold particle nanophotonics.' },
   { type: 'spacer' },
   { type: 'link', label: 'Website', url: 'https://arpangrover.com', display: 'arpangrover.com' },
   { type: 'link', label: 'LinkedIn', url: 'https://www.linkedin.com/in/arpan-grover/', display: 'linkedin.com/in/arpan-grover' },
@@ -168,6 +169,12 @@ async function animate() {
       el.className = 'section-text';
       content.appendChild(el);
       await typeText(el, line.text, 6);
+    } else if (line.type === 'rich') {
+      el.className = 'section-text';
+      content.appendChild(el);
+      const plain = line.html.replace(/<[^>]+>/g, '');
+      await typeText(el, plain, 8);
+      el.innerHTML = line.html;
     } else if (line.type === 'text') {
       el.className = 'section-text';
       content.appendChild(el);
