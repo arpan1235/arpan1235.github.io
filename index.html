@@ -52,6 +52,9 @@
   }
   .link-row:hover { color: #f0ece4; }
   .hint { color: #4a4540; margin-top: 10px; font-size: 11px; }
+  .link-row, .hint, .section-text, .role {
+    overflow-wrap: anywhere;
+  }
 
   .word {
     display: inline-block;
@@ -83,19 +86,23 @@
   }
 
   @media (max-width: 800px) {
+    body {
+      align-items: flex-start;
+      padding: 28px 18px 40px;
+    }
     .terminal {
       flex-direction: column;
-      gap: 24px;
-      max-width: 95vw;
+      gap: 20px;
+      max-width: 100%;
     }
     .art-stack {
       flex-direction: row;
       align-self: stretch;
-      gap: 0px;
+      gap: 8px;
       overflow: hidden;
     }
     .art {
-      font-size: calc((100vw - 48px) / 144);
+      font-size: calc((100vw - 52px) / 150);
       width: 33.33%;
       flex: none;
       overflow: hidden;
@@ -104,6 +111,44 @@
       width: 100%;
       max-width: 100%;
       min-width: 0;
+    }
+  }
+
+  @media (max-width: 560px) {
+    body {
+      font-size: 12px;
+      padding: 20px 14px 32px;
+    }
+    .terminal {
+      gap: 16px;
+    }
+    .art-stack {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      overflow: visible;
+    }
+    .art {
+      width: 100%;
+      font-size: min(7px, calc((100vw - 28px) / 84));
+      text-align: center;
+      overflow: visible;
+    }
+    .content {
+      font-size: 12px;
+    }
+    .name {
+      font-size: 15px;
+    }
+    .role {
+      margin-bottom: 10px;
+    }
+    .link-row {
+      line-height: 1.8;
+    }
+    .hint {
+      margin-top: 14px;
+      font-size: 10px;
     }
   }
 </style>
@@ -157,7 +202,6 @@ const lines = [
   { type: 'link', label: 'LinkedIn', url: 'https://www.linkedin.com/in/arpan-grover/', display: 'linkedin.com/in/arpan-grover' },
   { type: 'link', label: 'X', url: 'https://x.com/arpan_gro', display: 'x.com/arpan_gro' },
   { type: 'link', label: 'Email', url: 'mailto:arpan@trytuuli.com', display: 'arpan@trytuuli.com' },
-  { type: 'hint', text: '\u2191\u2193 navigate    enter open    q quit' },
 ];
 
 const content = document.getElementById('content');
